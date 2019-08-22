@@ -7,6 +7,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 //JMockit的程序结构
+
+/**
+ * 通过下面例子可以看出，
+ * JMockit的程序结构包含了测试属性或测试参数，测试方法，
+ * 测试方法体中又包含 录制代码块，重放测试逻辑，验证代码块  三大块。
+ */
 public class ProgramConstructureTest {
     
     // 这是一个测试属性
@@ -23,7 +29,7 @@ public class ProgramConstructureTest {
         }};
         // 重放(Replay)
         String msg = helloJMockit.sayHello();
-        Assert.assertTrue(msg.equals("hello,david"));
+        Assert.assertEquals("hello,david", msg);
         // 验证(Verification)
         new Verifications() {{
             helloJMockit.sayHello();
@@ -45,7 +51,7 @@ public class ProgramConstructureTest {
         }};
         // 重放(Replay)
         String msg = helloJMockit.sayHello();
-        Assert.assertTrue(msg.equals("hello,david"));
+        Assert.assertEquals("hello,david", msg);
         // 验证(Verification)
         new Verifications() {{
             helloJMockit.sayHello();
