@@ -52,7 +52,8 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- JMockit的引用声明必须在junit前面 -->
+        <!-- JUnit4.x及以下用户特别注意事项
+            如果你是通过mvn test来运行你的测试程序 , 请确保JMockit的依赖定义出现在JUnit的依赖之前。   -->
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
