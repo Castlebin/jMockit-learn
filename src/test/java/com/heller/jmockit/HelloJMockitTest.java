@@ -7,6 +7,17 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class HelloJMockitTest {
+
+    private HelloJMockit helloJMockit = new HelloJMockit();
+
+    /**
+     * 普通测试用例
+     */
+    @Test
+    public void testSayHello() {
+        Assert.assertEquals("Hello, JMockit!", helloJMockit.sayHello());
+        Assert.assertNotEquals("你好，JMockIt！", helloJMockit.sayHello());
+    }
     
     /**
      * 测试场景：当前是在中国
@@ -17,7 +28,7 @@ public class HelloJMockitTest {
             Locale.getDefault();
             result = Locale.CHINA;
         }};
-        Assert.assertTrue("你好，JMockIt！".equals(new HelloJMockit().sayHello()));
+        Assert.assertEquals("你好，JMockIt！", helloJMockit.sayHello());
     }
     
     /**
@@ -29,7 +40,7 @@ public class HelloJMockitTest {
             Locale.getDefault();
             result = Locale.US;
         }};
-        Assert.assertTrue("Hello, JMockit!".equals(new HelloJMockit().sayHello()));
+        Assert.assertEquals("Hello, JMockit!", helloJMockit.sayHello());
     }
     
 }
