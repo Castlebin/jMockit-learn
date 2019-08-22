@@ -12,18 +12,6 @@
         <spring.version>4.2.0.RELEASE</spring.version>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -69,5 +57,43 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <includeEmptyDirs>true</includeEmptyDirs>
+                    <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+
+            <!-- JMockit Coverage配置
+                如果你还需要使用JMockit的代码覆盖率功能，你需要在Maven pom.xml中如下定义
+            -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-javaagent:"${settings.localRepository}/org/jmockit/jmockit/1.36/jmockit-1.36.jar=coverage"</argLine>
+                    <disableXmlReport>false</disableXmlReport>
+                    <systemPropertyVariables>
+                        <coverage-output>html</coverage-output>
+                        <coverage-outputDir>${project.build.directory}/codecoverage-output</coverage-outputDir>
+                        <coverage-metrics>all</coverage-metrics>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
