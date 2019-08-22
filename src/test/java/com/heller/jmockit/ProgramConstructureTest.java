@@ -12,6 +12,10 @@ import org.junit.Test;
  * 通过下面例子可以看出，
  * JMockit的程序结构包含了测试属性或测试参数，测试方法，
  * 测试方法体中又包含 录制代码块，重放测试逻辑，验证代码块  三大块。
+ *
+ * @Mocked
+ * 该注解修饰一个测试属性或者参数，表示该对象的的实例化，属性赋值，方法调用的返回值全部由JMockit来接管，
+ * 接管后，helloJMockit的行为与HelloJMockit类定义的不一样了，而是完全由录制脚本来定义了
  */
 public class ProgramConstructureTest {
     
