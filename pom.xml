@@ -54,6 +54,8 @@
 
         <!-- JUnit4.x及以下用户特别注意事项
             如果你是通过mvn test来运行你的测试程序 , 请确保JMockit的依赖定义出现在JUnit的依赖之前。   -->
+
+        <!-- 如果你是在Eclipse中运行/调试你的测试程序， 需要确保JMockit出现在JUnit之前。你可以提供Up,Down来调整。 -->
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
